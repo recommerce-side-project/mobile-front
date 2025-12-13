@@ -118,12 +118,24 @@ npx expo start --port 8081
 
 ```
 mobile-front/
-├── app/                # 앱 화면 및 라우팅
-├── assets/             # 이미지, 폰트 등 정적 파일
-├── app.json            # Expo 설정 파일
-├── eas.json            # EAS Build 설정
-├── package.json        # 프로젝트 의존성
-└── tsconfig.json       # TypeScript 설정
+├── src/
+│   ├── App.tsx           # 루트 컴포넌트
+│   ├── api/              # API 클라이언트 및 서비스
+│   ├── assets/           # 이미지, 폰트 등 정적 파일
+│   ├── components/       # 재사용 가능한 컴포넌트
+│   ├── hooks/            # 커스텀 React Hooks
+│   ├── navigations/      # 네비게이션 설정
+│   ├── screens/          # 화면 컴포넌트
+│   ├── stores/           # 상태 관리 (Zustand, Redux 등)
+│   ├── styles/           # 공통 스타일 및 테마
+│   ├── types/            # TypeScript 타입 정의
+│   └── utils/            # 유틸리티 함수
+├── .gitignore            # Git 제외 파일 목록
+├── app.json              # Expo 설정 파일
+├── eas.json              # EAS Build 설정
+├── index.ts              # 앱 진입점
+├── package.json          # 프로젝트 의존성
+└── tsconfig.json         # TypeScript 설정
 ```
 
 ## EAS Build (프로덕션 빌드)
