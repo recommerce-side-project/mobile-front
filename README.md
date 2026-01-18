@@ -171,7 +171,7 @@ eas build --platform ios
 
 - Develop는 여러 feature 브랜치가 합쳐지는 구간이며 변경 사항 업데이트가 필요할 때 feature가 아닌 develop에서 pull을 받습니다.
 - rebase는 하지 않고 merge를 합니다. 커밋 최적화가 필요하면 `git merge --sqush` 를 합니다.
-- 브랜치명은 기능별로 작업합니다.
+- 브랜치명은 기능별로 작성합니다.
   예시) feat/layout, feat/main-page
 
 ### Git Commit Message-prefix 규칙
