@@ -42,3 +42,6 @@ yarn-error.*
 
 # Claude Code local files
 CLAUDE.local.md
+
+# JetBrains IDEs
+.idea/
