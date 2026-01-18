@@ -58,32 +58,36 @@ npx expo start
 개발 서버가 시작되면 터미널에 QR 코드가 표시됩니다.
 
 **iOS (iPhone/iPad):**
+
 1. 카메라 앱을 열고 QR 코드를 스캔
 2. 알림을 탭하여 Expo Go에서 열기
 
 **Android:**
+
 1. Expo Go 앱을 열기
 2. 'Scan QR Code' 탭하여 스캔
 
 ## 개발 명령어
 
-| 명령어 | 설명 |
-|--------|------|
-| `npm start` | Metro bundler와 개발 서버 시작 |
-| `npm run android` | Android 에뮬레이터에서 앱 실행 |
-| `npm run ios` | iOS 시뮬레이터에서 앱 실행 (macOS만 가능) |
-| `npm run web` | 웹 브라우저에서 앱 실행 |
+| 명령어            | 설명                                      |
+| ----------------- | ----------------------------------------- |
+| `npm start`       | Metro bundler와 개발 서버 시작            |
+| `npm run android` | Android 에뮬레이터에서 앱 실행            |
+| `npm run ios`     | iOS 시뮬레이터에서 앱 실행 (macOS만 가능) |
+| `npm run web`     | 웹 브라우저에서 앱 실행                   |
 
 ## 확인 사항 - 네트워크 연결
 
 동일한 Wi-Fi 네트워크에 모바일 기기와 개발 PC가 연결되어 있어야 합니다.
 
 네트워크 연결이 불가능한 경우:
+
 - `npx expo start --tunnel` 명령을 사용하여 터널 모드로 실행
 
 ## 문제 해결
 
 ### 캐시 초기화
+
 ```bash
 npx expo start --clear
 ```
@@ -91,18 +95,21 @@ npx expo start --clear
 ### 의존성 재설치
 
 **macOS/Linux:**
+
 ```bash
 rm -rf node_modules package-lock.json
 npm install
 ```
 
 **Windows (PowerShell):**
+
 ```powershell
 Remove-Item -Recurse -Force node_modules, package-lock.json
 npm install
 ```
 
 **Windows (CMD):**
+
 ```cmd
 rmdir /s /q node_modules
 del package-lock.json
@@ -110,6 +117,7 @@ npm install
 ```
 
 ### Metro bundler 포트 변경
+
 ```bash
 npx expo start --port 8081
 ```
@@ -156,3 +164,28 @@ eas build:configure
 eas build --platform android
 eas build --platform ios
 ```
+
+## Git 전략
+
+![git전략](https://github.com/user-attachments/assets/e71b4d54-7272-44c6-b77a-530bc43feb64)
+
+- Develop는 여러 feature 브랜치가 합쳐지는 구간이며 변경 사항 업데이트가 필요할 때 feature가 아닌 develop에서 pull을 받습니다.
+- rebase는 하지 않고 merge를 합니다. 커밋 최적화가 필요하면 `git merge --sqush` 를 합니다.
+- 브랜치명은 기능별로 작업합니다.
+  예시) feat/layout, feat/main-page
+
+### Git Commit Message-prefix 규칙
+
+- 커밋 메시지는 작업 내용을 한글로 작성하며 직관적이면서 상세히 작성합니다.
+- 메시지 형식은 `접두어: 커밋메시지` 로 통일합니다.
+- 작업 내용에 따라 아래 prefix를 적용합니다.
+
+#### Message Prefix
+
+- feat: 새로운 기능을 추가할 경우. ex)
+  `feat: navigation bar 생성`
+- fix: 버그를 고친 경우. ex) `fix: database 연결 에러 수정`
+- chore: 빌드 테스트 , 업데이트 , 패키지 매니저를 설정하는 경우(프로덕션 코드 변경X) or 불필요한 코드 제거 등 위의 2가지를 제외한 경우. ex) `chore: 불필요한 import문 제거`
+- merge: 머지 커밋.
+- refactor: 프로덕션 코드 리팩토링, 새로운 기능이나 버그 수정없이 현재 구현을 개선한 경우. ex) `refactor: 중복코드 제거`
+- hotfix: 프로덕션 단계에서 크리티컬한 버그를 수정한 경우
