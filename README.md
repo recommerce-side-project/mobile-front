@@ -167,7 +167,7 @@ eas build --platform ios
 
 ## Git 전략
 
-![git전략](https://github.com/user-attachments/assets/e71b4d54-7272-44c6-b77a-530bc43feb64)
+![git전략이미지](https://github.com/user-attachments/assets/e71b4d54-7272-44c6-b77a-530bc43feb64)
 
 - Develop는 여러 feature 브랜치가 합쳐지는 구간이며 변경 사항 업데이트가 필요할 때 feature가 아닌 develop에서 pull을 받습니다.
 - rebase는 하지 않고 merge를 합니다. 커밋 최적화가 필요하면 `git merge --squash` 를 합니다.
